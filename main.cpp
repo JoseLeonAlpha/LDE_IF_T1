@@ -94,7 +94,32 @@ int Nodo::Obtienedato()
     return(this->dato);
 }
 
+void LSE::InsertarI(int x)
+{      if(!Inicio){//Si no hay un inicio
+	Inicio=new Nodo(x);//Crea un nodo y lo iguala con inicio
+    Fin=Inicio;//si hay un solo dato ese dato es el inicio y el fin
+}else
+    {
+        Nodo *helpx3=new Nodo(x);//Crea un nodo que guarda una direccion
+        helpx3->Asignasig(Inicio);//helpx3 esta apuntanto a asigna siguiente que este a su vez es inicio
+        Inicio=helpx3;
+    }
+}
 
+
+void LSE::InsertarF(int x){
+	if(Inicio==NULL){//Si inicio esta vacio
+		Inicio=new Nodo(x); //Creamos un nuevo nodo
+		Fin=Inicio;//Para que este a su vez sea el ultimo datp ingresado
+	}else{
+			Nodo *ayuda=new Nodo(x); //Si ya hay algun dato creamos un nuevo nodo que guarde la direecion
+			Fin->Asignasig(ayuda); //al ingresar el ultimo dato asignamos al nodo sig que apunte al nodo que se creo
+			Nodo *b=Fin; //Guardamos la direccion al nodo fin
+			Fin=ayuda; //Ingualamos ayuda a fin que es el ulttimo valor ingresado
+
+	}
+
+}
 
 
 
